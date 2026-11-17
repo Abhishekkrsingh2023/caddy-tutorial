@@ -1,0 +1,10 @@
+# Site 1 — static marketing site
+localhost:8080 {
+    root * /var/www/site1
+    file_server
+}
+
+# Site 2 — proxied API app
+localhost:8443 {
+    reverse_proxy localhost:8000
+}

@@ -1,0 +1,23 @@
+localhost {
+    # Compress responses with gzip and zstd
+    encode gzip zstd
+
+    # Redirect /old-page to /new-page (301 = permanent)
+    redir /old-page /new-page 301
+
+    # Access log — written to a file
+    log {
+        output file /var/log/caddy/access.log
+        format json
+    }
+
+    # Security headers
+    header {
+        X-Frame-Options DENY
+        X-Content-Type-Options nosniff
+        Referrer-Policy strict-origin-when-cross-origin
+        -Server
+    }
+
+    file_server
+}

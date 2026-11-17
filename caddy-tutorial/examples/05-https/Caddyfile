@@ -1,0 +1,5 @@
+# Replace example.com with your real domain.
+# DNS must point to this server before running.
+example.com {
+    file_server
+}

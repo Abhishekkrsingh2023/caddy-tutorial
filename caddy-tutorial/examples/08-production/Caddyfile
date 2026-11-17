@@ -1,0 +1,22 @@
+# Global options — applies to the whole server
+{
+    email admin@example.com
+}
+
+# Replace example.com with your real domain
+example.com {
+    encode gzip zstd
+
+    log {
+        output file /var/log/caddy/access.log
+        format json
+    }
+
+    header {
+        X-Frame-Options DENY
+        X-Content-Type-Options nosniff
+        -Server
+    }
+
+    reverse_proxy localhost:8000
+}
